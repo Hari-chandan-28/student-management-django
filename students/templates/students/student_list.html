@@ -1,0 +1,11 @@
+<h1>Students</h1>
+
+<a href="#">Add Student</a>
+
+<ul>
+  {% for student in students %}
+    <li>
+      {{ student.name }} - {{ student.course }}
+    </li>
+  {% endfor %}
+</ul>
