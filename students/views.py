@@ -20,7 +20,7 @@ def student_create(request):
     
     return render(request , 'students/student_form.html' , {'form' : form})
 
-def student_upadate(request ,id):
+def student_update(request ,id):
     student = get_object_or_404(Student , id =id)
     if(request.method == 'POST'):
         form =StudentForm(request.POST , instance =student)
@@ -30,3 +30,8 @@ def student_upadate(request ,id):
     else:
         form =StudentForm(instance =student)
     return render(request , 'students/student_form.html',{form : form})
+
+def student_delete(request ,id):
+    student =get_object_or_404(Student ,id=id)
+    student.delete()
+    return redirect('student_list')
