@@ -19,6 +19,7 @@ def student_create(request):
             form = StudentForm()
     
     return render(request , 'students/student_form.html' , {'form' : form})
+
 def student_upadate(request ,id):
     student = get_object_or_404(Student , id =id)
     if(request.method == 'POST'):
