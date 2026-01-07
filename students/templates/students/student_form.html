@@ -1,9 +1,19 @@
-<h1>Add Student</h1>
+{% if is_edit %}
+  <h1>Edit Student</h1>
+{% else %}
+  <h1>Add Student</h1>
+{% endif %}
 
 <form method="post">
     {% csrf_token %}
+
     {{ form.as_p }}
-    <button type="submit">Save</button>
+    
+
+
+    <button type="submit">
+        {% if is_edit %}Update{% else %}Save{% endif %}
+    </button>
 </form>
 
 <a href="{% url 'student_list' %}">Back to list</a>
