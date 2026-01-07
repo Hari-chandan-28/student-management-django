@@ -10,15 +10,16 @@ def student_list(request):
     return render(request , 'students/student_list.html', {'students': students})
 # Create your views here.
 def student_create(request):
-    if(request.method =='POST'):
+    if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('student_list')
-        else:
-            form = StudentForm()
-    
-    return render(request , 'students/student_form.html' , {'form' : form})
+    else:
+        form = StudentForm()
+
+    return render(request, 'students/student_form.html', {'form': form})
+
 
 def student_update(request ,id):
     student = get_object_or_404(Student , id =id)
