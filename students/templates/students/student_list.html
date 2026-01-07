@@ -6,6 +6,8 @@
   {% for student in students %}
     <li>
       {{ student.name }} - {{ student.course }}
+      <a href="{% url 'student_update' student.id %}">Edit</a>
     </li>
   {% endfor %}
 </ul>
+
