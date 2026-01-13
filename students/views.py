@@ -2,9 +2,9 @@ from django.shortcuts import render , redirect
 from .forms import StudentForm
 from .models import Student
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
-
-
+@login_required
 def student_list(request):
     students = Student.objects.all()
     return render(request , 'students/student_list.html', {'students': students})
